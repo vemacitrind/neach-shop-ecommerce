@@ -1,11 +1,10 @@
-NEACH Shop E-Commerce
+# NEACH Shop E-Commerce
 
-NEACH Shop is an e-commerce web application created for NEACH businesses that want to start online with minimal resources.
-The project focuses on simplicity, low cost, and a practical serverless-style backend approach.
+NEACH Shop is an e-commerce web application created for NEACH businesses that want to start online with minimal resources. The project focuses on simplicity, low cost, and a practical serverless-style backend approach.
 
 This repository is suitable for startups, small shops, learning projects, and lightweight production use.
 
-Project Description
+## Project Description
 
 This project is designed for businesses that want to launch an online store without maintaining a full-time backend server.
 
@@ -13,15 +12,15 @@ The backend is not required to run continuously. It is started only when necessa
 
 This approach reduces:
 
-Hosting costs
-
-Server maintenance
-
-Infrastructure complexity
+- Hosting costs
+- Server maintenance
+- Infrastructure complexity
 
 The backend can run locally on a computer or on a mobile device using Termux.
 
-Project Structure
+## Project Structure
+
+```
 neach-shop-ecommerce/
 │
 ├── backend/
@@ -42,45 +41,56 @@ neach-shop-ecommerce/
 ├── tailwind.config.ts
 ├── README.md
 └── .gitignore
+```
 
-Frontend Setup
-Requirements
+## Frontend Setup
 
-Node.js (v18 or higher)
+### Requirements
 
-npm
+- Node.js (v18 or higher)
+- npm
 
-Installation
+### Installation
+
+```bash
 npm install
+```
 
-Development Server
+### Development Server
+
+```bash
 npm run dev
+```
 
+Frontend will be available at: http://localhost:5173
 
-Frontend will be available at:
-
-http://localhost:5173
-
-Backend Setup (On-Demand)
+## Backend Setup (On-Demand)
 
 The backend is only needed for specific tasks such as image uploads.
 
-Download Only the Backend Folder
+### Download Only the Backend Folder
 
 If you want only the backend, use one of the following methods.
 
-Using Git (Sparse Checkout)
+#### Using Git (Sparse Checkout)
+
+```bash
 git clone --no-checkout https://github.com/your-username/neach-shop-ecommerce.git
 cd neach-shop-ecommerce
 git sparse-checkout init --cone
 git sparse-checkout set backend
 git checkout
-
+```
 
 This will download only the backend folder.
 
-Backend Folder Contents
+### Backend Folder Contents
+
+```bash
 ls -a backend
+```
+
+```
 .
 ..
 .env
@@ -90,27 +100,36 @@ node_modules
 package.json
 package-lock.json
 server.js
+```
 
-Backend Installation
+### Backend Installation
+
+```bash
 cd backend
 npm install
+```
 
-Environment Configuration
+### Environment Configuration
+
+```bash
 cp .env_copy .env
-
+```
 
 Edit .env and add the required values.
 
-Start Backend Server (Only When Needed)
-node server.js
+### Start Backend Server (Only When Needed)
 
+```bash
+node server.js
+```
 
 Stop the server when uploads or admin tasks are complete.
 
-Running Backend on Mobile (Termux)
+## Running Backend on Mobile (Termux)
 
 The backend can be run on an Android device using Termux.
 
+```bash
 pkg install nodejs git
 git clone --no-checkout https://github.com/your-username/neach-shop-ecommerce.git
 cd neach-shop-ecommerce
@@ -120,30 +139,24 @@ git checkout
 cd backend
 npm install
 node server.js
-
+```
 
 This allows backend usage without a computer.
 
-Who This Project Is For
+## Who This Project Is For
 
-Small businesses
+- Small businesses
+- Local shops
+- Startups with limited budget
+- Developers learning serverless-style architecture
+- College and portfolio projects
 
-Local shops
+## Security Notes
 
-Startups with limited budget
+- .env files are not committed to Git
+- Do not expose environment variables publicly
+- Backend runs locally for better control
 
-Developers learning serverless-style architecture
-
-College and portfolio projects
-
-Security Notes
-
-.env files are not committed to Git
-
-Do not expose environment variables publicly
-
-Backend runs locally for better control
-
-License
+## License
 
 This project is open-source and intended for learning and small business use.
