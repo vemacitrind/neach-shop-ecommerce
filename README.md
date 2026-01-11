@@ -2,8 +2,6 @@
 
 NEACH Shop is an e-commerce web application created for NEACH businesses that want to start online with minimal resources. The project focuses on simplicity, low cost, and a practical serverless-style backend approach.
 
-This repository is suitable for startups, small shops, learning projects, and lightweight production use.
-
 ## Project Description
 
 This project is designed for businesses that want to launch an online store without maintaining a full-time backend server.
@@ -11,69 +9,58 @@ This project is designed for businesses that want to launch an online store with
 The backend is not required to run continuously. It is started only when necessary, such as during image uploads or admin-related tasks. Once the task is complete, the backend can be stopped.
 
 This approach reduces:
-
 - Hosting costs
 - Server maintenance
 - Infrastructure complexity
 
 The backend can run locally on a computer or on a mobile device using Termux.
 
-## Project Structure
+## Technology Stack
 
-```
-neach-shop-ecommerce/
-│
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── .env
-│   ├── .env_copy
-│   └── frontend-examples.js
-│
-├── src/
-├── public/
-├── supabase/
-├── dist/
-├── index.html
-├── package.json
-├── vite.config.ts
-├── tailwind.config.ts
-├── README.md
-└── .gitignore
-```
+<div align="center">
+  <img src="https://vitejs.dev/logo.svg" alt="Vite" width="60" height="60">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/c7568160-b85b-4c49-ae86-f374a70180ab" alt="Supabase" width="60" height="60">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/a5c4e932-e043-44e8-96e6-3812614a76d8" alt="Cloudinary" width="60" height="60">
+</div>
+<div align="center">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Vite</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Supabase</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Cloudinary</strong>
+</div>
 
-## Frontend Setup
+
+<details>
+<summary><strong>Setup for Whole Website</strong></summary>
 
 ### Requirements
-
 - Node.js (v18 or higher)
 - npm
 
 ### Installation
-
 ```bash
+git clone https://github.com/your-username/neach-shop-ecommerce.git
+cd neach-shop-ecommerce
 npm install
 ```
 
 ### Development Server
-
 ```bash
 npm run dev
 ```
 
 Frontend will be available at: http://localhost:5173
 
-## Backend Setup (On-Demand)
+</details>
 
-The backend is only needed for specific tasks such as image uploads.
+<details>
+<summary><strong>Setup for Backend Only</strong></summary>
 
-### Download Only the Backend Folder
-
-If you want only the backend, use one of the following methods.
-
-#### Using Git (Sparse Checkout)
-
+### Download Only Backend
 ```bash
 git clone --no-checkout https://github.com/your-username/neach-shop-ecommerce.git
 cd neach-shop-ecommerce
@@ -82,53 +69,24 @@ git sparse-checkout set backend
 git checkout
 ```
 
-This will download only the backend folder.
-
-### Backend Folder Contents
-
-```bash
-ls -a backend
-```
-
-```
-.
-..
-.env
-.env_copy
-frontend-examples.js
-node_modules
-package.json
-package-lock.json
-server.js
-```
-
 ### Backend Installation
-
 ```bash
 cd backend
 npm install
 ```
 
 ### Environment Configuration
-
 ```bash
 cp .env_copy .env
 ```
-
 Edit .env and add the required values.
 
-### Start Backend Server (Only When Needed)
-
+### Start Backend Server
 ```bash
 node server.js
 ```
 
-Stop the server when uploads or admin tasks are complete.
-
-## Running Backend on Mobile (Termux)
-
-The backend can be run on an Android device using Termux.
-
+### Running on Mobile (Termux)
 ```bash
 pkg install nodejs git
 git clone --no-checkout https://github.com/your-username/neach-shop-ecommerce.git
@@ -141,22 +99,4 @@ npm install
 node server.js
 ```
 
-This allows backend usage without a computer.
-
-## Who This Project Is For
-
-- Small businesses
-- Local shops
-- Startups with limited budget
-- Developers learning serverless-style architecture
-- College and portfolio projects
-
-## Security Notes
-
-- .env files are not committed to Git
-- Do not expose environment variables publicly
-- Backend runs locally for better control
-
-## License
-
-This project is open-source and intended for learning and small business use.
+</details>
