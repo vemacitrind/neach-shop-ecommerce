@@ -62,7 +62,7 @@ Frontend will be available at: http://localhost:5173
 
 ### Download Only Backend
 ```bash
-git clone --no-checkout https://github.com/your-username/neach-shop-ecommerce.git
+git clone --no-checkout https://github.com/vemacitrind/neach-shop-ecommerce.git
 cd neach-shop-ecommerce
 git sparse-checkout init --cone
 git sparse-checkout set backend
@@ -89,7 +89,7 @@ node server.js
 ### Running on Mobile (Termux)
 ```bash
 pkg install nodejs git
-git clone --no-checkout https://github.com/your-username/neach-shop-ecommerce.git
+git clone --no-checkout https://github.com/vemacitrind/neach-shop-ecommerce.git
 cd neach-shop-ecommerce
 git sparse-checkout init --cone
 git sparse-checkout set backend

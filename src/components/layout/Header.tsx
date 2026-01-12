@@ -28,6 +28,7 @@ export function Header() {
     { href: '/products?category=wallets', label: 'Wallets' },
     { href: '/products?category=sunglasses', label: 'Sunglasses' },
     { href: '/products?category=watches', label: 'Watches' },
+    { href: '/about', label: 'About Us' },
     // { href: '/admin', label: 'Admin' },
   ];
 
@@ -80,37 +81,50 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            {searchOpen ? (
-              <form onSubmit={handleSearch} className="flex items-center gap-2">
-                <Input
-                  type="search"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  className="w-32 md:w-48 h-9 bg-muted border-border"
-                  autoFocus
-                />
+            {/* Desktop Search */}
+            <div className="hidden md:flex items-center gap-2">
+              {searchOpen ? (
+                <form onSubmit={handleSearch} className="flex items-center gap-2">
+                  <Input
+                    type="search"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    className="w-48 h-9 bg-muted border-border"
+                    autoFocus
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => {
+                      setSearchOpen(false);
+                      setSearchQuery('');
+                    }}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </form>
+              ) : (
                 <Button
-                  type="button"
                   variant="ghost"
                   size="icon"
-                  onClick={() => {
-                    setSearchOpen(false);
-                    setSearchQuery('');
-                  }}
+                  onClick={() => setSearchOpen(true)}
                 >
-                  <X className="h-4 w-4" />
+                  <Search className="h-5 w-5" />
                 </Button>
-              </form>
-            ) : (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setSearchOpen(true)}
-              >
-                <Search className="h-5 w-5" />
-              </Button>
-            )}
+              )}
+            </div>
+
+            {/* Mobile Search Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setSearchOpen(!searchOpen)}
+            >
+              {searchOpen ? <X className="h-4 w-4" /> : <Search className="h-5 w-5" />}
+            </Button>
 
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="relative">
@@ -124,6 +138,25 @@ export function Header() {
             </Link>
           </div>
         </div>
+        
+        {/* Mobile Search Bar */}
+        {searchOpen && (
+          <div className="md:hidden pb-4">
+            <form onSubmit={handleSearch} className="flex items-center gap-2">
+              <Input
+                type="search"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="flex-1 h-10 bg-muted border-border"
+                autoFocus
+              />
+              <Button type="submit" size="sm">
+                Search
+              </Button>
+            </form>
+          </div>
+        )}
       </div>
     </header>
   );

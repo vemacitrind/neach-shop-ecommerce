@@ -42,11 +42,14 @@ export function Footer() {
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Support</h4>
             <nav className="flex flex-col gap-2">
-              <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                Contact Us
+              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                About Us
               </Link>
-              <Link to="/shipping" className="text-muted-foreground hover:text-primary transition-colors">
-                Shipping Info
+              <span className="text-muted-foreground">
+                +91 98792-13871
+              </span>
+              <Link to="/track-order" className="text-muted-foreground hover:text-primary transition-colors">
+                Track Order
               </Link>
               <Link to="/returns" className="text-muted-foreground hover:text-primary transition-colors">
                 Returns
@@ -57,7 +60,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} LUXEMEN. All rights reserved.
+            © {new Date().getFullYear()} Vedant Hot Fashion. All rights reserved.
           </p>
           <Link 
             to="/admin" 

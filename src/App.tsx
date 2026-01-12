@@ -10,6 +10,9 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import About from "./pages/About";
+import TrackOrder from "./pages/TrackOrder";
+import OrderStatus from "./pages/OrderStatus";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -29,6 +32,9 @@ const App = () => (
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-confirmation/:orderNumber" element={<OrderConfirmation />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/track-order" element={<TrackOrder />} />
+            <Route path="/order-status/:orderNumber" element={<OrderStatus />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

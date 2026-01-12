@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { formatPrice } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
+import { sendOrderStatusEmail, sendAdminNotification } from '@/lib/email';
 import { toast } from 'sonner';
 import { ArrowLeft, Check } from 'lucide-react';
 import { z } from 'zod';
@@ -117,6 +118,30 @@ export default function Checkout() {
         .insert(orderItems);
 
       if (itemsError) throw itemsError;
+
+      // Send confirmation email to customer
+      try {
+        await sendOrderStatusEmail(
+          formData.customer_email,
+          formData.customer_name,
+          order.order_number,
+          'confirmed',
+          `Thank you for your order! Your order ${order.order_number} has been confirmed and will be processed soon.`
+        );
+      } catch (emailError) {
+        console.error('Failed to send customer email:', emailError);
+      }
+
+      // Send notification to admin
+      try {
+        await sendAdminNotification(
+          order.order_number,
+          formData.customer_name,
+          total
+        );
+      } catch (emailError) {
+        console.error('Failed to send admin notification:', emailError);
+      }
 
       // Clear cart and redirect
       clearCart();
